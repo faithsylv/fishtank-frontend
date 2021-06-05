@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fishtank-frontend/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/fishtank-frontend/static/js/main.e217b546.chunk.js",
+    "main.js.map": "/fishtank-frontend/static/js/main.e217b546.chunk.js.map",
+    "runtime-main.js": "/fishtank-frontend/static/js/runtime-main.8b808006.js",
+    "runtime-main.js.map": "/fishtank-frontend/static/js/runtime-main.8b808006.js.map",
+    "static/js/2.89e04128.chunk.js": "/fishtank-frontend/static/js/2.89e04128.chunk.js",
+    "static/js/2.89e04128.chunk.js.map": "/fishtank-frontend/static/js/2.89e04128.chunk.js.map",
+    "static/js/3.8f5619aa.chunk.js": "/fishtank-frontend/static/js/3.8f5619aa.chunk.js",
+    "static/js/3.8f5619aa.chunk.js.map": "/fishtank-frontend/static/js/3.8f5619aa.chunk.js.map",
+    "index.html": "/fishtank-frontend/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/fishtank-frontend/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.89e04128.chunk.js.LICENSE.txt": "/fishtank-frontend/static/js/2.89e04128.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/fishtank-frontend/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b808006.js",
+    "static/js/2.89e04128.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.e217b546.chunk.js"
+  ]
+}

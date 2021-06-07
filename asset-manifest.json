@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/fishtank-frontend/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/fishtank-frontend/static/js/main.e217b546.chunk.js",
-    "main.js.map": "/fishtank-frontend/static/js/main.e217b546.chunk.js.map",
-    "runtime-main.js": "/fishtank-frontend/static/js/runtime-main.8b808006.js",
-    "runtime-main.js.map": "/fishtank-frontend/static/js/runtime-main.8b808006.js.map",
-    "static/js/2.89e04128.chunk.js": "/fishtank-frontend/static/js/2.89e04128.chunk.js",
-    "static/js/2.89e04128.chunk.js.map": "/fishtank-frontend/static/js/2.89e04128.chunk.js.map",
-    "static/js/3.8f5619aa.chunk.js": "/fishtank-frontend/static/js/3.8f5619aa.chunk.js",
-    "static/js/3.8f5619aa.chunk.js.map": "/fishtank-frontend/static/js/3.8f5619aa.chunk.js.map",
+    "main.css": "/fishtank-frontend/static/css/main.ea8c7a4a.chunk.css",
+    "main.js": "/fishtank-frontend/static/js/main.ab2af1cf.chunk.js",
+    "main.js.map": "/fishtank-frontend/static/js/main.ab2af1cf.chunk.js.map",
+    "runtime-main.js": "/fishtank-frontend/static/js/runtime-main.d5faf7cc.js",
+    "runtime-main.js.map": "/fishtank-frontend/static/js/runtime-main.d5faf7cc.js.map",
+    "static/js/2.eab7cd17.chunk.js": "/fishtank-frontend/static/js/2.eab7cd17.chunk.js",
+    "static/js/2.eab7cd17.chunk.js.map": "/fishtank-frontend/static/js/2.eab7cd17.chunk.js.map",
+    "static/js/3.74334fa5.chunk.js": "/fishtank-frontend/static/js/3.74334fa5.chunk.js",
+    "static/js/3.74334fa5.chunk.js.map": "/fishtank-frontend/static/js/3.74334fa5.chunk.js.map",
     "index.html": "/fishtank-frontend/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/fishtank-frontend/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.89e04128.chunk.js.LICENSE.txt": "/fishtank-frontend/static/js/2.89e04128.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/fishtank-frontend/static/media/logo.6ce24c58.svg"
+    "static/css/main.ea8c7a4a.chunk.css.map": "/fishtank-frontend/static/css/main.ea8c7a4a.chunk.css.map",
+    "static/js/2.eab7cd17.chunk.js.LICENSE.txt": "/fishtank-frontend/static/js/2.eab7cd17.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8b808006.js",
-    "static/js/2.89e04128.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.e217b546.chunk.js"
+    "static/js/runtime-main.d5faf7cc.js",
+    "static/js/2.eab7cd17.chunk.js",
+    "static/css/main.ea8c7a4a.chunk.css",
+    "static/js/main.ab2af1cf.chunk.js"
   ]
 }

@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
+import { UserProvider }  from './contexts/UserContext';
 import reportWebVitals from './reportWebVitals';
+
+require('dotenv').config();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

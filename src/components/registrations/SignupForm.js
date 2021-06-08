@@ -10,6 +10,7 @@ const SignupForm = () => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [institutionName, setInstitutionName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +28,7 @@ const SignupForm = () => {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName, lastName, username: email, password }),
+      body: JSON.stringify({ firstName, lastName, institutionName, username: email, password }),
     })
       .then(async response => {
         setIsSubmitting(false);
@@ -59,44 +60,43 @@ const SignupForm = () => {
   return (
     <div className="login-component">
       <form onSubmit={ formSubmitHandler } className="login-form">
-        <label>
-          <input
-           className = "input-item first-name"
-           placeholder = "First Name"
-           name ="first-name"
-           value = { firstName }
-           onInput = { event => setFirstName(event.target.value) }
-          />
-        </label>
-        <label>
-          <input
-           className = "input-item last-name"
-           placeholder = "LastName"
-           name = "last-name"
-           value = { lastName }
-           onInput= { event => setLastName(event.target.value) }
-          />
-        </label>
-        <label>
-          <input
-           className = "input-item email"
-           placeholder = "email"
-           type ="email"
-           name ="email"
-           value = { email }
-           onInput = { event => setEmail(event.target.value) }
-          />
-        </label>
-        <label>
-          <input
-           className = "input-item password"
-           placeholder = "password"
-           type = "password"
-           name = "password"
-           value = { password }
-           onInput= { event => setPassword(event.target.value) }
-          />
-        </label>
+        <input
+         className = "input-item first-name"
+         placeholder = "First Name"
+         name ="first-name"
+         value = { firstName }
+         onInput = { event => setFirstName(event.target.value) }
+        />
+        <input
+         className = "input-item last-name"
+         placeholder = "LastName"
+         name = "last-name"
+         value = { lastName }
+         onInput= { event => setLastName(event.target.value) }
+        />
+        <input
+         className = "input-item institution-name"
+         placeholder = "Institution Name"
+         name = "institution-name"
+         value = { institutionName }
+         onInput= { event => setInstitutionName(event.target.value) }
+        />
+        <input
+         className = "input-item email"
+         placeholder = "email"
+         type ="email"
+         name ="email"
+         value = { email }
+         onInput = { event => setEmail(event.target.value) }
+        />
+        <input
+         className = "input-item password"
+         placeholder = "password"
+         type = "password"
+         name = "password"
+         value = { password }
+         onInput= { event => setPassword(event.target.value) }
+        />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
          Sign up
         </button>

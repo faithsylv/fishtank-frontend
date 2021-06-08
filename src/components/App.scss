@@ -9,3 +9,35 @@ ul li {
   display: inline;
   padding: 10px;
 }
+
+.Modal {
+  width: 400px;
+  height: 50vh;
+  margin: 55px auto;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000054;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.input-item {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-close {
+  position: relative;
+  right: -40%;
+}

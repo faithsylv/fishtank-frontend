@@ -54,34 +54,26 @@ const LoginForm = () => {
   return (
     <div className="login-component">
       <form onSubmit={ formSubmitHandler } className="login-form">
-        <label>
-          <input
+        <input
            className = "input-item email"
            placeholder = "email"
            type ="email"
            name ="email"
            value = { email }
            onInput = { event => setEmail(event.target.value) }
-          />
-        </label>
-        <label>
-          <input
+        />
+        <input
            className = "input-item password"
            placeholder = "password"
            type = "password"
            name = "password"
            value = { password }
            onInput= { event => setPassword(event.target.value) }
-          />
-        </label>
+        />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
           Log In
         </button>
       </form>
-
-      <div>
-       Not a member?  <Link to='/signup'>Sign up!</Link>
-      </div>
 
     </div>
   );

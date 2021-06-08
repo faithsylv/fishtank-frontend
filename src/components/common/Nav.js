@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Switch, Route, Link} from "react-router-dom";
+import React, { useCallback, useEffect, useState, useContext } from 'react';
+import { HashRouter as Router, Switch, Route, Link, useHistory} from "react-router-dom";
+import { UserContext } from '../../contexts/UserContext';
+
 import Home from '../pages/home';
-import About from '../pages/about'
+import About from '../pages/about';
+import Research from '../pages/research';
+import Contribute from '../pages/research/Contribute'
 
 import LoginForm from '../registrations/LoginForm';
 import SignupForm from '../registrations/SignupForm';
+import Logout from './Logout'
 
 import Modal from 'react-modal';
 
@@ -21,119 +26,146 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-class Nav extends Component {
+const Nav = (props) => {
 
-  constructor () {
-    super();
-    this.state = {
-      showLogInModal: false,
-      showSignUpModal: ''
-    };
-    this.handleOpenLogInModal = this.handleOpenLogInModal.bind(this);
-    this.handleCloseLogInModal = this.handleCloseLogInModal.bind(this);
-    this.handleOpenSignUpModal = this.handleOpenSignUpModal.bind(this);
-    this.handleCloseSignUpModal = this.handleCloseSignUpModal.bind(this);
-  }
+  const [userContext, setUserContext] = useContext(UserContext);
+  const [showLogInModal, setShowLogInModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-  handleOpenLogInModal () {
+  const handleOpenLogInModal = () => {
 
-    if (this.state.showSignUpModal === true) {
-      this.setState( { showSignUpModal: false } )
+    if (showSignUpModal === true) {
+      setShowSignUpModal(false)
     }
 
-   this.setState({ showLogInModal: true });
+   setShowLogInModal(true);
   }
 
-  handleCloseLogInModal () {
-   this.setState({ showLogInModal: false });
+  const handleCloseLogInModal = () => {
+   setShowLogInModal(false);
  }
 
-  handleOpenSignUpModal () {
+  const handleOpenSignUpModal = () => {
 
-    if (this.state.showLogInModal === true) {
-      this.setState( { showLoginModal: false } )
+    if (showLogInModal === true) {
+      setShowLogInModal(false);
     }
-    this.setState({ showSignUpModal: true });
+    setShowSignUpModal(true);
   }
 
-  handleCloseSignUpModal () {
-   this.setState({ showSignUpModal: false });
+  const handleCloseSignUpModal = () => {
+   setShowSignUpModal(false);
  }
 
-  render() {
 
-    return (
-      <Router>
+
+  const verifyUser = useCallback(() => {
+  console.log('verifying...');
+
+  fetch(process.env.REACT_APP_API_ENDPOINT + "users/refreshToken", {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+  }).then(async response => {
+    console.log('response is: ',response);
+    if (response.ok) {
+      const data = await response.json()
+      setUserContext(oldValues => {
+        return { ...oldValues, token: data.token }
+      })
+    } else {
+      setUserContext(oldValues => {
+        return { ...oldValues, token: null }
+      })
+    }
+    // call refreshToken every 5 minutes to renew the authentication token.
+    setTimeout(verifyUser, 5 * 60 * 1000)
+  })
+  }, [setUserContext])
+
+  useEffect(() => {
+    console.log('verifying user');
+    verifyUser()
+  }, [verifyUser])
+
+  return (
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/research-project">Open Source Research</Link>
+          </li>
+          <li>
+            <Link to="/research-project/contribute">Contribute</Link>
+          </li>
+        </ul>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <Link to="/research-project">Open Source Research</Link>
-            </li>
-            <li>
-              <Link to="/research-project/contribute">Contribute</Link>
-            </li>
-          </ul>
 
-          <div>
-            <button onClick={this.handleOpenLogInModal} className = 'login-button'>Log In</button>
-            <Modal
-              isOpen={this.state.showLogInModal}
-              className="Modal login"
-              overlayClassName="Overlay"
-              onRequestClose={this.handleCloseLogInModal}
-              contentLabel='login popup'
-            >
-              <button onClick={this.handleCloseLogInModal} className='modal-close'>X</button>
-              <LoginForm handleClose={ this.handleCloseLogInModal }/>
 
-              <div>
-               Not a member?  <a onClick={this.handleOpenSignUpModal}>Sign Up</a>
-              </div>
+          {userContext.token ? '' :
+          <button onClick={handleOpenLogInModal} className = 'login-button'>Log In</button>}
+          <Modal
+            isOpen={showLogInModal}
+            className="Modal login"
+            overlayClassName="Overlay"
+            onRequestClose={handleCloseLogInModal}
+            contentLabel='login popup'
+          >
+            <button onClick={handleCloseLogInModal} className='modal-close'>X</button>
+            <LoginForm handleClose={ handleCloseLogInModal }/>
 
-            </Modal>
+            <div>
+             Not a member?  <a onClick={handleOpenSignUpModal}>Sign Up</a>
+            </div>
 
-            <button onClick={this.handleOpenSignUpModal} className = 'login-button'>Sign Up</button>
-            <Modal
-              isOpen={this.state.showSignUpModal}
-              className="Modal login"
-              overlayClassName="Overlay"
-              onRequestClose={this.handleCloseSignUpModal}
-              contentLabel='login popup'
-            >
-              <button onClick={this.handleCloseSignUpModal} className='modal-close'>X</button>
-              <SignupForm handleClose={ this.handleCloseSignUpModal }/>
+          </Modal>
 
-              <div>
-               Already a member?  <a onClick={this.handleOpenLogInModal}>Log In</a>
-              </div>
+          {userContext.token ?
+          <Logout /> : ''}
 
-            </Modal>
-          </div>
+          {userContext.token ? '' :
+          <button onClick={handleOpenSignUpModal} className = 'login-button'>Sign Up</button>}
+          <Modal
+            isOpen={showSignUpModal}
+            className="Modal login"
+            overlayClassName="Overlay"
+            onRequestClose={handleCloseSignUpModal}
+            contentLabel='login popup'
+          >
+            <button onClick={handleCloseSignUpModal} className='modal-close'>X</button>
+            <SignupForm handleClose={ handleCloseSignUpModal }/>
 
-          <hr />
+            <div>
+             Already a member? <a onClick={handleOpenLogInModal}>Log In</a>
+            </div>
 
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
-          </Switch>
+          </Modal>
         </div>
-      </Router>
-    );
-  }
 
+        <hr />
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/research-project">
+            <Research />
+          </Route>
+          <Route exact path="/research-project/contribute">
+            <Contribute />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
-
 export default Nav;

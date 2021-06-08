@@ -4,8 +4,8 @@ const UserContext = React.createContext([{}, () => {}]);
 
 let initialState = {};
 
-const UserProvider = (props) => {
-  const [state, setState] = useState('initialState');
+const UserProvider = props => {
+  const [state, setState] = useState(initialState);
 
   return (
     <UserContext.Provider value={[state, setState]}>

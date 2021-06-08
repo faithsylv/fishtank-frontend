@@ -1,16 +1,21 @@
 import React, { useContext, useState} from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
+
 import $ from 'jquery';
 
 const LoginForm = (props) => {
 
+  let history = useHistory();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [userContext, setUserContext] = useState(UserContext);
+  const [userContext, setUserContext] = useContext(UserContext);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("chicken");
 
   const formSubmitHandler = event =>  {
     event.preventDefault();
@@ -21,6 +26,7 @@ const LoginForm = (props) => {
     setError("");
 
     const genericErrorMessage = "Something went wrong! Please try again.";
+
     fetch(process.env.REACT_APP_API_ENDPOINT + "users/login", {
       method: "POST",
       credentials: "include",
@@ -39,10 +45,13 @@ const LoginForm = (props) => {
           }
         } else {
           const data = await response.json()
+          console.log('data', data);
           setUserContext(oldValues => {
             return { ...oldValues, token: data.token }
           })
           props.handleClose();
+          history.push("/research-project/contribute");
+          //TODO: redirect to research-project/contribute page
         }
       })
         .catch(error => {

@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
+import { useHistory } from "react-router-dom";
+
 import $ from 'jquery';
 
 const SignupForm = (props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [userContext, setUserContext] = useState(UserContext);
+  const [userContext, setUserContext] = useContext(UserContext);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,7 +16,10 @@ const SignupForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  let history = useHistory();
+
   const formSubmitHandler = event => {
+
     event.preventDefault();
     setIsSubmitting(true);
 
@@ -49,7 +54,10 @@ const SignupForm = (props) => {
           setUserContext(oldValues => {
             return { ...oldValues, token: data.token }
           })
+          console.log('token data:', data.token);
           props.handleClose();
+          history.push("/");
+          //TODO: redirect to about you form
         }
       })
         .catch(error => {

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import $ from 'jquery';
 
-const SignupForm = () => {
+const SignupForm = (props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -49,6 +49,7 @@ const SignupForm = () => {
           setUserContext(oldValues => {
             return { ...oldValues, token: data.token }
           })
+          props.handleClose();
         }
       })
         .catch(error => {

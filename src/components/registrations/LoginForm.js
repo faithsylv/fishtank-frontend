@@ -3,7 +3,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -21,7 +21,6 @@ const LoginForm = () => {
     setError("");
 
     const genericErrorMessage = "Something went wrong! Please try again.";
-    console.log(process.env.REACT_APP_API_ENDPOINT + "users/login");
     fetch(process.env.REACT_APP_API_ENDPOINT + "users/login", {
       method: "POST",
       credentials: "include",
@@ -43,6 +42,7 @@ const LoginForm = () => {
           setUserContext(oldValues => {
             return { ...oldValues, token: data.token }
           })
+          props.handleClose();
         }
       })
         .catch(error => {

@@ -90,7 +90,7 @@ class Nav extends Component {
               contentLabel='login popup'
             >
               <button onClick={this.handleCloseLogInModal} className='modal-close'>X</button>
-              <LoginForm />
+              <LoginForm handleClose={ this.handleCloseLogInModal }/>
 
               <div>
                Not a member?  <a onClick={this.handleOpenSignUpModal}>Sign Up</a>
@@ -107,12 +107,12 @@ class Nav extends Component {
               contentLabel='login popup'
             >
               <button onClick={this.handleCloseSignUpModal} className='modal-close'>X</button>
-              <SignupForm />
+              <SignupForm handleClose={ this.handleCloseSignUpModal }/>
 
               <div>
                Already a member?  <a onClick={this.handleOpenLogInModal}>Log In</a>
               </div>
-              
+
             </Modal>
           </div>
 

@@ -3,9 +3,6 @@ import { UserContext } from '../../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
-
-import $ from 'jquery';
-
 const LoginForm = (props) => {
 
   let history = useHistory();
@@ -20,8 +17,6 @@ const LoginForm = (props) => {
   const formSubmitHandler = event =>  {
     event.preventDefault();
     setIsSubmitting(true);
-
-    $('.form-button').html("Logging in...");
 
     setError("");
 
@@ -82,7 +77,7 @@ const LoginForm = (props) => {
            required
         />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
-          Log In
+          {isSubmitting ? 'Logging In...' : 'Log In'}
         </button>
       </form>
 

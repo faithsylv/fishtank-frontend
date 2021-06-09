@@ -33,6 +33,8 @@ const Nav = (props) => {
   const [showLogInModal, setShowLogInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
 
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
   const handleOpenLogInModal = () => {
 
     if (showSignUpModal === true) {
@@ -100,9 +102,10 @@ const Nav = (props) => {
           <li>
             <Link to="/research-project">Open Source Research</Link>
           </li>
+          {userContext.token ?
           <li>
             <Link to="/research-project/contribute">Contribute</Link>
-          </li>
+          </li> : ''}
         </ul>
         <div>
           {userContext.token ? '' :
@@ -149,7 +152,7 @@ const Nav = (props) => {
 
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home isSubscribed = { isSubscribed } setIsSubscribed = { setIsSubscribed }/>
           </Route>
           <Route exact path="/new-member-form">
             <NewMemberForm />

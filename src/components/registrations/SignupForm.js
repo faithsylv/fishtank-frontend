@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { useHistory } from "react-router-dom";
 
-import $ from 'jquery';
-
 const SignupForm = (props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,9 +20,6 @@ const SignupForm = (props) => {
 
     event.preventDefault();
     setIsSubmitting(true);
-
-    $('.form-button').html("Signing you up...");
-
     setError("");
 
     const genericErrorMessage = "Something went wrong! Please try again later."
@@ -111,7 +106,7 @@ const SignupForm = (props) => {
          required
         />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
-         Sign up
+          {isSubmitting ? 'Registering...' : 'Join'}
         </button>
       </form>
     </div>

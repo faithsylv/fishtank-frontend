@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewsletterContainer from './newsletter/Container';
 
 class Home extends Component {
 
@@ -6,6 +7,7 @@ class Home extends Component {
     return (
       <div>
         I'm the homepage!
+        <NewsletterContainer isSubscribed = { this.props.isSubscribed } setIsSubscribed = { this.props.setIsSubscribed }/>
       </div>
     );
   }

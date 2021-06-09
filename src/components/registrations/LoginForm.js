@@ -70,6 +70,7 @@ const LoginForm = (props) => {
            name ="email"
            value = { email }
            onInput = { event => setEmail(event.target.value) }
+           required
         />
         <input
            className = "input-item password"
@@ -78,6 +79,7 @@ const LoginForm = (props) => {
            name = "password"
            value = { password }
            onInput= { event => setPassword(event.target.value) }
+           required
         />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
           Log In

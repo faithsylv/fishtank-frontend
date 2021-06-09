@@ -27,6 +27,7 @@ const Contribute = () => {
       }
     })
   }, [setUserContext, userContext.token])
+
   useEffect(() => {
     // fetch only when user details are not present
     if (!userContext.details) {

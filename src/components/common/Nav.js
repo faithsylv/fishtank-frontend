@@ -9,6 +9,7 @@ import Contribute from '../pages/research/Contribute'
 
 import LoginForm from '../registrations/LoginForm';
 import SignupForm from '../registrations/SignupForm';
+import NewMemberForm from '../registrations/NewMemberForm';
 import Logout from './Logout'
 
 import Modal from 'react-modal';
@@ -57,8 +58,6 @@ const Nav = (props) => {
    setShowSignUpModal(false);
  }
 
-
-
   const verifyUser = useCallback(() => {
   console.log('verifying...');
 
@@ -106,8 +105,6 @@ const Nav = (props) => {
           </li>
         </ul>
         <div>
-
-
           {userContext.token ? '' :
           <button onClick={handleOpenLogInModal} className = 'login-button'>Log In</button>}
           <Modal
@@ -153,6 +150,9 @@ const Nav = (props) => {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/new-member-form">
+            <NewMemberForm />
           </Route>
           <Route exact path="/about">
             <About />

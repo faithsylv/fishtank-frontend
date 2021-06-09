@@ -56,8 +56,7 @@ const SignupForm = (props) => {
           })
           console.log('token data:', data.token);
           props.handleClose();
-          history.push("/");
-          //TODO: redirect to about you form
+          history.push("/new-member-form");
         }
       })
         .catch(error => {
@@ -75,6 +74,7 @@ const SignupForm = (props) => {
          name ="first-name"
          value = { firstName }
          onInput = { event => setFirstName(event.target.value) }
+         required
         />
         <input
          className = "input-item last-name"
@@ -82,6 +82,7 @@ const SignupForm = (props) => {
          name = "last-name"
          value = { lastName }
          onInput= { event => setLastName(event.target.value) }
+         required
         />
         <input
          className = "input-item institution-name"
@@ -89,6 +90,7 @@ const SignupForm = (props) => {
          name = "institution-name"
          value = { institutionName }
          onInput= { event => setInstitutionName(event.target.value) }
+         required
         />
         <input
          className = "input-item email"
@@ -97,6 +99,7 @@ const SignupForm = (props) => {
          name ="email"
          value = { email }
          onInput = { event => setEmail(event.target.value) }
+         required
         />
         <input
          className = "input-item password"
@@ -105,6 +108,7 @@ const SignupForm = (props) => {
          name = "password"
          value = { password }
          onInput= { event => setPassword(event.target.value) }
+         required
         />
         <button className = "form-button" type="submit" disabled={ isSubmitting }>
          Sign up

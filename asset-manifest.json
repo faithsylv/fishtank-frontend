@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/fishtank-frontend/static/css/main.171c7dab.chunk.css",
-    "main.js": "/fishtank-frontend/static/js/main.aaf77433.chunk.js",
-    "main.js.map": "/fishtank-frontend/static/js/main.aaf77433.chunk.js.map",
+    "main.js": "/fishtank-frontend/static/js/main.2727eab4.chunk.js",
+    "main.js.map": "/fishtank-frontend/static/js/main.2727eab4.chunk.js.map",
     "runtime-main.js": "/fishtank-frontend/static/js/runtime-main.927f5f29.js",
     "runtime-main.js.map": "/fishtank-frontend/static/js/runtime-main.927f5f29.js.map",
-    "static/js/2.0a0e8bfe.chunk.js": "/fishtank-frontend/static/js/2.0a0e8bfe.chunk.js",
-    "static/js/2.0a0e8bfe.chunk.js.map": "/fishtank-frontend/static/js/2.0a0e8bfe.chunk.js.map",
+    "static/js/2.1351d890.chunk.js": "/fishtank-frontend/static/js/2.1351d890.chunk.js",
+    "static/js/2.1351d890.chunk.js.map": "/fishtank-frontend/static/js/2.1351d890.chunk.js.map",
     "static/js/3.97202b30.chunk.js": "/fishtank-frontend/static/js/3.97202b30.chunk.js",
     "static/js/3.97202b30.chunk.js.map": "/fishtank-frontend/static/js/3.97202b30.chunk.js.map",
     "index.html": "/fishtank-frontend/index.html",
     "static/css/main.171c7dab.chunk.css.map": "/fishtank-frontend/static/css/main.171c7dab.chunk.css.map",
-    "static/js/2.0a0e8bfe.chunk.js.LICENSE.txt": "/fishtank-frontend/static/js/2.0a0e8bfe.chunk.js.LICENSE.txt"
+    "static/js/2.1351d890.chunk.js.LICENSE.txt": "/fishtank-frontend/static/js/2.1351d890.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.927f5f29.js",
-    "static/js/2.0a0e8bfe.chunk.js",
+    "static/js/2.1351d890.chunk.js",
     "static/css/main.171c7dab.chunk.css",
-    "static/js/main.aaf77433.chunk.js"
+    "static/js/main.2727eab4.chunk.js"
   ]
 }

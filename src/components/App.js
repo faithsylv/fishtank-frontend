@@ -11,6 +11,7 @@ function App() {
       <UserProvider>
         <Nav />
       </UserProvider>
+
     </div>
   );
 }

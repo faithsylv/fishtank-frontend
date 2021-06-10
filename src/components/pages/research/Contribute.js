@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect } from "react"
 import { UserContext } from "../../../contexts/UserContext"
+import FileUpload from './FileUpload';
 
 const Contribute = () => {
   const [userContext, setUserContext] = useContext(UserContext)
@@ -40,14 +41,13 @@ const Contribute = () => {
     <div>
       <h1>Contribute to Our Research Project</h1>
 
-      {!userContext.details ? '' :
-      <p>
-        Welcome&nbsp;
+        {!userContext.details ? '' :
+        <p>
+          Welcome {userContext.details.firstName} {userContext.details.lastName}
+        </p>
+        }
 
-        {userContext.details.firstName}
-        {userContext.details.lastName}
-          </p>
-      }
+      <FileUpload />
 
     </div>
   )

@@ -9,9 +9,16 @@ function App() {
   return (
     <div className="App">
       <UserProvider>
+      <section>
         <Nav />
+        <div className='wave-container'>
+          <div className="wave wave1"></div>
+          <div className="wave wave2"></div>
+          <div className="wave wave3"></div>
+          <div className="wave wave4"></div>
+        </div>
+      </section>
       </UserProvider>
-
     </div>
   );
 }

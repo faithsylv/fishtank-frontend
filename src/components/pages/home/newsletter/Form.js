@@ -23,8 +23,8 @@ const NewsletterForm = (props) => {
   }
 
   return (
-  <div class='newsletter-container'>
-    <form action={ url } onSubmit={formSubmitHandler} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" id='newsletter-form' novalidate>
+  <div>
+    <form action={ url } onSubmit={formSubmitHandler} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" id='newsletter-form' novalidate>
       <input
        className = "input-item first-name"
        id="mce-FNAME"

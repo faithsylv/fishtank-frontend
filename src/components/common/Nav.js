@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import Home from '../pages/home';
 import About from '../pages/about';
+import Pets from '../pages/pets'
 import Research from '../pages/research';
 import Contribute from '../pages/research/Contribute'
 
@@ -11,6 +12,8 @@ import LoginForm from '../registrations/LoginForm';
 import SignupForm from '../registrations/SignupForm';
 import NewMemberForm from '../registrations/NewMemberForm';
 import Logout from './Logout'
+
+import logo from './SharkLogo.png'
 
 import Modal from 'react-modal';
 
@@ -92,24 +95,56 @@ const Nav = (props) => {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li>
-            <Link to="/research-project">Open Source Research</Link>
-          </li>
-          {userContext.token ?
-          <li>
-            <Link to="/research-project/contribute">Contribute</Link>
-          </li> : ''}
-        </ul>
+        <h1 className='site-title'>
+          <span>F</span>
+          <span>i</span>
+          <span>s</span>
+          <span>h</span>
+          <span>T</span>
+          <span>a</span>
+          <span>n</span>
+          <span>k</span>
+        </h1>
+        <div className="navbar grid-container">
+          <div className='nav1'>
+            <img src={logo} alt="Fish Tank Logo as Line Drawing of Shark" className='logo'/>
+          </div>
+          <div className='nav2'>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/pets">For Pets!</Link>
+              </li>
+              <li>
+                <Link to="/research-project">Research Project</Link>
+              </li>
+              {userContext.token ?
+              <li>
+                <Link to="/research-project/contribute">Contribute to Project</Link>
+              </li> : ''}
+              <li>
+                <Link to="/contact">Get in Touch</Link>
+              </li>
+            </ul>
+          </div>
+          <div className='nav3'>
+            {userContext.token ? '' :
+            <button onClick={handleOpenLogInModal} className = 'login-button'>Log In</button>}
+
+            {userContext.token ? '' :
+            <button onClick={handleOpenSignUpModal} className = 'signup-button'>Sign Up</button>}
+
+            {userContext.token ?
+            <Logout /> : ''}
+          </div>
+
+        </div>
         <div>
-          {userContext.token ? '' :
-          <button onClick={handleOpenLogInModal} className = 'login-button'>Log In</button>}
           <Modal
             isOpen={showLogInModal}
             className="Modal login"
@@ -121,16 +156,11 @@ const Nav = (props) => {
             <LoginForm handleClose={ handleCloseLogInModal }/>
 
             <div>
-             Not a member?  <a onClick={handleOpenSignUpModal}>Sign Up</a>
+             Not a member?  <a onClick={handleOpenSignUpModal} className='modal-link'>Sign Up</a>
             </div>
 
           </Modal>
 
-          {userContext.token ?
-          <Logout /> : ''}
-
-          {userContext.token ? '' :
-          <button onClick={handleOpenSignUpModal} className = 'login-button'>Sign Up</button>}
           <Modal
             isOpen={showSignUpModal}
             className="Modal login"
@@ -142,13 +172,11 @@ const Nav = (props) => {
             <SignupForm handleClose={ handleCloseSignUpModal }/>
 
             <div>
-             Already a member? <a onClick={handleOpenLogInModal}>Log In</a>
+             Already a member? <a onClick={handleOpenLogInModal} className='modal-link'>Log In</a>
             </div>
 
           </Modal>
         </div>
-
-        <hr />
 
         <Switch>
           <Route exact path="/">
@@ -159,6 +187,9 @@ const Nav = (props) => {
           </Route>
           <Route exact path="/about">
             <About />
+          </Route>
+          <Route exact path="/Pets">
+            <Pets />
           </Route>
           <Route exact path="/research-project">
             <Research />

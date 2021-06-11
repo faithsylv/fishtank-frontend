@@ -26,7 +26,7 @@ const NewsletterForm = (props) => {
   <div>
     <form action={ url } onSubmit={formSubmitHandler} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" id='newsletter-form' novalidate>
       <input
-       className = "input-item first-name"
+       className = "input-item newsletter first-name"
        id="mce-FNAME"
        placeholder = "First Name"
        name ="FNAME"
@@ -36,7 +36,7 @@ const NewsletterForm = (props) => {
        required
       />
       <input
-       className = "input-item last-name"
+       className = "input-item newsletter last-name"
        id="mce-LNAME"
        placeholder = "LastName"
        name = "LNAME"
@@ -46,7 +46,7 @@ const NewsletterForm = (props) => {
        required
       />
       <input
-         className = "input-item email"
+         className = "input-item newsletter email"
          id="mce-EMAIL"
          placeholder = "email"
          type ="email"

@@ -7,6 +7,7 @@ import About from '../pages/about';
 import Pets from '../pages/pets'
 import Research from '../pages/research';
 import Contribute from '../pages/research/Contribute'
+import Contact from '../pages/contact';
 
 import LoginForm from '../registrations/LoginForm';
 import SignupForm from '../registrations/SignupForm';
@@ -112,7 +113,7 @@ const Nav = (props) => {
           <div className='nav2'>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className='nav-link'>Home</Link>
               </li>
               <li>
                 <Link to="/about">About Us</Link>
@@ -196,6 +197,9 @@ const Nav = (props) => {
           </Route>
           <Route exact path="/research-project/contribute">
             <Contribute />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
           </Route>
         </Switch>
       </div>

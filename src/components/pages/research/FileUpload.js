@@ -8,9 +8,9 @@ export default class FileUpload extends Component {
             <div className="container">
                 <div className="row">
                     <form>
-                        <h3>Upload Spreadsheet</h3>
+                        <h3>Download Spreadsheet</h3>
                         <div className="form-group">
-                          <a href={MyPDF} download='Elasmobranch_Study.numbers'>Download Here</a>
+                          <a href={MyPDF} download='Elasmobranch_Study.numbers' className='download-link'>Download Here</a>
                         </div>
                     </form>
                 </div>

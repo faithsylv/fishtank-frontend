@@ -28,7 +28,7 @@ const WhaleWatchContainer = (props) => {
  );
 
   return (
-    <div className='newsletter-container'>
+    <div className='whale-container home-grid5'>
       <h2>Whale Watch!</h2>
 
       {whaleSightings.map((whale) => (

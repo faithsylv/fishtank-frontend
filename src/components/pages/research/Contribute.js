@@ -47,6 +47,8 @@ const Contribute = () => {
         </p>
         }
 
+        <p className='contribute-text'>Sea coral grouper. Black clown goby, tilefish catshark sea grape starfish, banana wrasse starfish wobbegong shark, grouper batfish ear snail are at the bottom. Banana wrasse in yellow pseudochromi. Non mermaid parrotfish mystery snail.Sea coral grouper. Black clown goby.</p>
+
       <FileUpload />
 
     </div>

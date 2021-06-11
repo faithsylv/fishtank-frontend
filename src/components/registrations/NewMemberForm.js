@@ -65,50 +65,10 @@ const NewMemberForm = (props) => {
 
   return (
     <div className="login-component">
-      <form onSubmit={ formSubmitHandler } className="login-form">
-        <label>
-        What brought you to our website?
-        <select id="question1" name="question1" onChange = { event => setQuestion1(event.target.value) } required>
-          <option value="">Please Select One</option>
-          <option value="1">A colleague / friend mentioned it</option>
-          <option value="2">Found on search engine</option>
-          <option value="3">Social media</option>
-        </select>
-        </label>
-
-        <label>
-        What is your role?
-        <select id="question2" name="question2" onChange = { event => setQuestion2(event.target.value) } required>
-          <option value="">Please Select One</option>
-          <option value="1">PhD candidate / student</option>
-          <option value="1">Marine Biologist</option>
-          <option value="3">Field Researcher</option>
-          <option value="4">Hobbyist</option>
-          <option value="5">In industry</option>
-        </select>
-        </label>
-
-        <label>
-        Are you directly involved with field work and have access to fish to contribute to this project?
-        <select id="question3" name="question3" onChange = { event => setQuestion3(event.target.value) } required>
-          <option value="">Please Select One</option>
-          <option value="1">Yes</option>
-          <option value="2">No</option>
-        </select>
-        </label>
-
-        <label>
-        Are you interested primarily in large or small fish?
-        <select id="question4" name="question4" onChange = { event => setQuestion4(event.target.value) } required>
-          <option value="">Please Select One</option>
-          <option value="1">Large</option>
-          <option value="2">Small</option>
-        </select>
-        </label>
-
+      <form onSubmit={ formSubmitHandler } className="new-member-form">
         <label>
         Where are you located?
-        <select id="question5" name="question5" onChange = { event => setQuestion5(event.target.value) } required>
+        <select id="question1" name="question1" onChange = { event => setQuestion1(event.target.value) } className='dropdown' required>
           <option value="">Please Select One</option>
           <option value="1">Europe</option>
           <option value="2">North America</option>
@@ -122,14 +82,57 @@ const NewMemberForm = (props) => {
         </label>
 
         <label>
-        What is your role?
-        <select id="question6" name="question6" onChange = { event => setQuestion6(event.target.value) } required>
+        Would you like to participate in enrichment research on fish and elasmobranchs?
+        <select id="question2" name="question2" onChange = { event => setQuestion2(event.target.value) } className='dropdown' required>
           <option value="">Please Select One</option>
-          <option value="1">PhD candidate / student</option>
-          <option value="2">Marine Biologist</option>
-          <option value="3">Field Researcher</option>
-          <option value="4">Hobbyist</option>
-          <option value="5">In industry</option>
+          <option value="1">Yes</option>
+          <option value="1">No</option>
+        </select>
+        </label>
+
+        <label>
+        Do you currently practice enrichment with fish or elasmobranchs, and if so, how often?
+        <select id="question3" name="question3" onChange = { event => setQuestion3(event.target.value) } className='dropdown' required>
+          <option value="">Please Select One</option>
+          <option value="1">Yes - daily</option>
+          <option value="1">Yes - weekly</option>
+          <option value="1">Yes - monthly</option>
+          <option value="1">Yes - annually</option>
+          <option value="1">Yes - rarely</option>
+          <option value="2">No</option>
+        </select>
+        </label>
+
+        <label>
+        How many individuals are in your care?
+        <select id="question4" name="question4" onChange = { event => setQuestion4(event.target.value) } className='dropdown' required>
+          <option value="">Please Select One</option>
+          <option value="1">1 - 10</option>
+          <option value="2">10 - 50</option>
+          <option value="2">10 - 50</option>
+          <option value="2">50 +</option>
+          <option value="2">None</option>
+        </select>
+        </label>
+
+        <label>
+        Which species are in your care?
+        <select id="question5" name="question5" onChange = { event => setQuestion5(event.target.value) } className='dropdown' required>
+          <option value="">Please Select One</option>
+          <option value="1">Sharks</option>
+          <option value="2">Skates</option>
+          <option value="3">Rays</option>
+          <option value="3">Sawfish</option>
+        </select>
+        </label>
+
+        <label>
+        Are you able to commit to taking two 10-minute videos and scoring them using Microsoft Excel?
+        <select id="question6" name="question6" onChange = { event => setQuestion6(event.target.value) } className='dropdown' required>
+          <option value="">Please Select One</option>
+          <option value="1">Yes</option>
+          <option value="2">Possibly - I need to know more.</option>
+          <option value="3">No</option>
         </select>
         </label>
 

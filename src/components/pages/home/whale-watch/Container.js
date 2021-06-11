@@ -9,7 +9,7 @@ const WhaleWatchContainer = (props) => {
 
   const getSightingReports = () => {
     console.log('getting latest sightings...');
-    return axios.get('http://hotline.whalemuseum.org/api.json').then((response) => {
+    return axios.get('https://hotline.whalemuseum.org/api.json').then((response) => {
       setWhaleSightings(response.data.filter((whale) => whale.description !== "Imported by The Whale Museum."
       ))
     }).catch(error => {
